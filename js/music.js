@@ -1,25 +1,15 @@
 'use strict';
 
 (function () {
-  // ── Chapter-specific songs ───────────────────────────────────────────────
-  // Set a specific song for a chapter. Key = chapter number, Value = filename in playlist.json.
-  // Example: { '10': '5. Purple Rain - Prince.mp3' }
-  const CHAPTER_SONGS = {
-    // '10': '5. Purple Rain - Prince.mp3',
-  };
-
   const STATE_KEY   = 'goo-music-state';
   const FAB_POS_KEY = 'goo-fab-pos';
-  const DEFAULT_START_TIME = 2;
   const isChapter   = window.location.pathname.includes('/chapters/');
   const BASE        = isChapter ? '../' : '';
   const PLAYLIST    = BASE + 'audio/playlist.json';
-  const curChapter  = document.body.dataset.chapter || '';
 
   let songs      = [];
   let currentIdx = 0;
   let panelOpen  = false;
-  let waitingForInteraction = false;
 
   const audio   = new Audio();
   audio.preload = 'auto';
@@ -100,80 +90,6 @@
   audio.addEventListener('ended',          nextSong);
   audio.addEventListener('timeupdate',     updateProgress);
   audio.addEventListener('loadedmetadata', updateProgress);
-
-  // ── Autoplay helpers ─────────────────────────────────────────────────────
-  function onFirstInteraction() {
-    if (!audio.paused) return;
-    waitingForInteraction = false;
-    audio.play().catch(() => {});
-  }
-
-  function waitForInteraction() {
-    if (waitingForInteraction) return;
-    waitingForInteraction = true;
-    document.addEventListener('click',      onFirstInteraction, { once: true });
-    document.addEventListener('touchstart', onFirstInteraction, { once: true });
-    document.addEventListener('keydown',    onFirstInteraction, { once: true });
-  }
-
-  // Immediate autoplay attempt: unmuted → muted → wait for gesture.
-  // No 2500ms delay — tries right away.
-  async function tryAutoplay() {
-    if (!songs.length || !audio.paused) return;
-    try {
-      await audio.play();
-      saveState();
-      return;
-    } catch {}
-    // Muted fallback (allowed by all modern browsers even without gesture)
-    audio.muted = true;
-    try {
-      await audio.play();
-      audio.muted = false;
-      updateVolIcon();
-      saveState();
-    } catch {
-      audio.muted = false;
-      waitForInteraction();
-    }
-  }
-
-  // ── Early resume (minimize cross-page gap) ───────────────────────────────
-  // Called BEFORE playlist fetch. Uses the saved filename to start the audio
-  // element immediately, compensating for elapsed time since the last page saved state.
-  // Link-click navigation transfers the user activation, so unmuted play usually works.
-  function earlyResume() {
-    const saved = loadState();
-    if (!saved || !saved.playing || !saved.filename) return false;
-
-    const elapsed = (Date.now() - (saved.savedAt || Date.now())) / 1000;
-    const seekTo  = Math.max(0, (saved.time || 0) + elapsed);
-
-    audio.volume = saved.volume ?? 0.5;
-    audio.muted  = saved.muted  ?? false;
-    audio.src    = BASE + 'audio/' + saved.filename;
-
-    // Seek once metadata is ready (non-blocking)
-    audio.addEventListener('loadedmetadata', function onMeta() {
-      audio.removeEventListener('loadedmetadata', onMeta);
-      if (audio.duration && seekTo < audio.duration) {
-        audio.currentTime = seekTo;
-      }
-    }, { once: true });
-
-    // Try to play — link click counts as user activation in same-origin navigation
-    audio.play().catch(() => {
-      audio.muted = true;
-      audio.play()
-        .then(() => setTimeout(() => {
-          audio.muted = saved.muted ?? false;
-          updateVolIcon();
-        }, 80))
-        .catch(() => waitForInteraction());
-    });
-
-    return true;
-  }
 
   // ── Draggable FAB ────────────────────────────────────────────────────────
   function loadFabPos() {
@@ -273,44 +189,27 @@
   }
 
   // ── Init ─────────────────────────────────────────────────────────────────
+  // No autoplay — Eva controls playback herself via the ♪ button.
+  // Position & volume are restored from sessionStorage after a hard refresh,
+  // but audio always starts paused.
   async function init() {
-    // Start audio IMMEDIATELY before doing anything else — minimizes cross-page gap.
-    const resumed = earlyResume();
-
     await loadPlaylist();
     buildUI();
 
     if (!songs.length) return;
 
-    if (resumed) {
-      // Audio already started — just sync the UI to what's playing.
-      const saved = loadState();
-      const idx = saved?.filename ? songs.findIndex(s => s.filename === saved.filename) : -1;
-      currentIdx = idx >= 0 ? idx : (saved?.index || 0);
-      updateVolSlider();
-      updateUI();
-      return;
-    }
-
-    // First visit or was not playing — normal init.
-    const saved        = loadState();
-    const overrideFile = CHAPTER_SONGS[curChapter];
-    const overrideIdx  = overrideFile ? songs.findIndex(s => s.filename === overrideFile) : -1;
-
-    if (overrideIdx >= 0) {
-      loadSong(overrideIdx, DEFAULT_START_TIME);
-      audio.play().catch(() => waitForInteraction());
-    } else if (saved) {
+    const saved = loadState();
+    if (saved) {
       audio.volume = saved.volume ?? 0.5;
       audio.muted  = saved.muted  ?? false;
-      loadSong(saved.index || 0, saved.time || 0);
+      const idx = saved.filename ? songs.findIndex(s => s.filename === saved.filename) : -1;
+      loadSong(idx >= 0 ? idx : (saved.index || 0), saved.time || 0);
       updateVolSlider();
-      if (saved.playing) audio.play().catch(() => waitForInteraction());
     } else {
       audio.volume = 0.5;
-      loadSong(0, DEFAULT_START_TIME);
-      tryAutoplay(); // no delay — try immediately
+      loadSong(0, 0);
     }
+    // Always start paused — do not call audio.play() here.
   }
 
   // ── Build UI ─────────────────────────────────────────────────────────────
