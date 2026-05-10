@@ -398,8 +398,30 @@
     stickers = local.length > 0 ? local : committed;
   }
 
+  // ── Image-load gate ───────────────────────────────────────────────────────
+  // Sticker y-positions depend on anchor elements BELOW images.
+  // If renderAll() runs before images are loaded, those elements report a
+  // smaller getBoundingClientRect().top (images have 0 height) → stickers
+  // appear too high.  Always wait for chapter images before rendering.
+  function waitForChapterImages() {
+    const imgs = Array.from(document.querySelectorAll('.chapter-content img'));
+    if (!imgs.length) return Promise.resolve();
+    const perImg = imgs.map(img =>
+      img.complete
+        ? Promise.resolve()
+        : new Promise(r => {
+            img.addEventListener('load',  r, { once: true });
+            img.addEventListener('error', r, { once: true });
+          })
+    );
+    // Cap the wait at 4 s so slow connections don't block forever.
+    const timeout = new Promise(r => setTimeout(r, 4000));
+    return Promise.race([Promise.allSettled(perImg), timeout]);
+  }
+
   async function refreshForRoute() {
     await loadChapterData();
+    await waitForChapterImages();   // ← wait for images so anchors are at their real positions
     renderAll();
     await loadInlineImages();
     setupInlineEditing();
@@ -408,7 +430,9 @@
   // ── Init ──────────────────────────────────────────────────────────────────
   async function init() {
     await loadChapterData(); // opens IndexedDB
+    // Render immediately, then re-render once images are loaded for accuracy.
     renderAll();
+    waitForChapterImages().then(renderAll);
     await loadInlineImages();
 
     document.getElementById('edit-toggle')
