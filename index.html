@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>구네식당</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-chapter="0">
+  <div id="page-transition" class="active"></div>
+  <div id="reading-progress" class="reading-progress"></div>
+  <a id="chapter-back" class="chapter-back" href="#" style="display:none">← Menu</a>
+  <button id="edit-toggle" class="edit-toggle-btn" title="편집 모드">✏</button>
+  <div id="app"></div>
+  <div id="unlock-toast" class="unlock-toast">
+    <div class="unlock-toast-inner">
+      <span class="unlock-icon">✦</span>
+      <span class="unlock-text">다음 코스가 열렸어요</span>
+    </div>
+  </div>
+  <div id="sticker-layer" class="sticker-layer"></div>
+  <div id="music-player-root"></div>
+
+  <div id="edit-panel" class="edit-panel">
+    <label class="edit-upload-label">
+      <input type="file" id="sticker-upload" accept=".jpg,.jpeg,.png,.heic,.heif,image/*" multiple>
+      <span class="edit-upload-btn">＋ 사진 추가</span>
+    </label>
+    <span class="edit-panel-hint">사진을 추가하고 원하는 위치로 끌어다 놓으세요</span>
+    <button id="edit-clear-btn" class="edit-clear-btn">모두 삭제</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+{
+  "1": [
+    {
+      "id": "sticker-1778383906343-ln8geq6il6",
+      "anchorIdx": 1,
+      "side": "right",
+      "rotation": -4.6,
+      "src": "images/stickers/sticker-1778383906343-ln8geq6il6.png"
+    },
+    {
+      "id": "sticker-1778383946176-o40u0e0ck1",
+      "anchorIdx": 1,
+      "side": "left",
+      "rotation": -3.6,
+      "src": "images/stickers/sticker-1778383946176-o40u0e0ck1.png"
+    },
+    {
+      "id": "sticker-1778384080217-xr1kaz15gp",
+      "anchorIdx": 9,
+      "side": "right",
+      "rotation": -1.3,
+      "src": "images/stickers/sticker-1778384080217-xr1kaz15gp.png"
+    },
+    {
+      "id": "sticker-1778384088275-6xhyjsagm8s",
+      "anchorIdx": 9,
+      "side": "left",
+      "rotation": -4.3,
+      "src": "images/stickers/sticker-1778384088275-6xhyjsagm8s.png"
+    },
+    {
+      "id": "sticker-1778384104232-c3e2j62nrrv",
+      "anchorIdx": 11,
+      "side": "right",
+      "rotation": 1.1,
+      "src": "images/stickers/sticker-1778384104232-c3e2j62nrrv.png"
+    },
+    {
+      "id": "sticker-1778384115442-cwq9qha5b57",
+      "anchorIdx": 11,
+      "side": "left",
+      "rotation": 2.6,
+      "src": "images/stickers/sticker-1778384115442-cwq9qha5b57.png"
+    },
+    {
+      "id": "sticker-1778384309541-coykzu7s0uh",
+      "anchorIdx": 15,
+      "side": "right",
+      "rotation": 3.5,
+      "src": "images/stickers/sticker-1778384309541-coykzu7s0uh.png"
+    },
+    {
+      "id": "sticker-1778384416960-nj128w19y8g",
+      "anchorIdx": 15,
+      "side": "left",
+      "rotation": -1.4,
+      "src": "images/stickers/sticker-1778384416960-nj128w19y8g.jpg"
+    },
+    {
+      "id": "sticker-1778384436260-p2pmjp9se2m",
+      "anchorIdx": 16,
+      "side": "left",
+      "rotation": -3.2,
+      "src": "images/stickers/sticker-1778384436260-p2pmjp9se2m.png"
+    },
+    {
+      "id": "sticker-1778384541152-3d92yhzauuh",
+      "anchorIdx": 16,
+      "side": "right",
+      "rotation": -2.4,
+      "src": "images/stickers/sticker-1778384541152-3d92yhzauuh.png"
+    }
+  ],
+  "3": [
+    {
+      "id": "sticker-1778387925853-qh5zypjusj",
+      "anchorIdx": 3,
+      "side": "right",
+      "rotation": 4.9,
+      "src": "images/stickers/sticker-1778387925853-qh5zypjusj.png"
+    }
+  ],
+  "5": [
+    {
+      "id": "sticker-1778388449079-bedufscq2tg",
+      "anchorIdx": 2,
+      "side": "right",
+      "rotation": -2.5,
+      "src": "images/stickers/sticker-1778388449079-bedufscq2tg.png"
+    },
+    {
+      "id": "sticker-1778388512513-ijc1vuwajc",
+      "anchorIdx": 2,
+      "side": "left",
+      "rotation": -2.5,
+      "src": "images/stickers/sticker-1778388512513-ijc1vuwajc.jpg"
+    }
+  ],
+  "7": [
+    {
+      "id": "sticker-1778389278883-ocoqfa0tt1",
+      "anchorIdx": 1,
+      "side": "left",
+      "rotation": 3.5,
+      "src": "images/stickers/sticker-1778389278883-ocoqfa0tt1.png"
+    },
+    {
+      "id": "sticker-1778389285869-8hffgszhnt",
+      "anchorIdx": 2,
+      "side": "right",
+      "rotation": -2.6,
+      "src": "images/stickers/sticker-1778389285869-8hffgszhnt.png"
+    },
+    {
+      "id": "sticker-1778389295561-9len4wnqt5d",
+      "anchorIdx": 1,
+      "side": "right",
+      "rotation": -3.7,
+      "src": "images/stickers/sticker-1778389295561-9len4wnqt5d.png"
+    },
+    {
+      "id": "sticker-1778389486711-011up5ff1gxm",
+      "anchorIdx": 2,
+      "side": "left",
+      "rotation": -3.2,
+      "src": "images/stickers/sticker-1778389486711-011up5ff1gxm.png"
+    }
+  ],
+  "10": [
+    {
+      "id": "sticker-1778390057860-yo830l3jj4",
+      "anchorIdx": 1,
+      "side": "left",
+      "rotation": -0.6,
+      "src": "images/stickers/sticker-1778390057860-yo830l3jj4.png"
+    },
+    {
+      "id": "sticker-1778390064581-9vj95hu3kkc",
+      "anchorIdx": 1,
+      "side": "right",
+      "rotation": 4.7,
+      "src": "images/stickers/sticker-1778390064581-9vj95hu3kkc.png"
+    },
+    {
+      "id": "sticker-1778390070148-mdty4ntxix9",
+      "anchorIdx": 2,
+      "side": "right",
+      "rotation": -4.3,
+      "src": "images/stickers/sticker-1778390070148-mdty4ntxix9.png"
+    },
+    {
+      "id": "sticker-1778390079650-16eygd3ux0o",
+      "anchorIdx": 3,
+      "side": "right",
+      "rotation": 1.7,
+      "src": "images/stickers/sticker-1778390079650-16eygd3ux0o.png"
+    },
+    {
+      "id": "sticker-1778390085859-1melut2bqtgj",
+      "anchorIdx": 3,
+      "side": "left",
+      "rotation": 4,
+      "src": "images/stickers/sticker-1778390085859-1melut2bqtgj.png"
+    },
+    {
+      "id": "sticker-1778390167608-dpnspsj2b6i",
+      "anchorIdx": 5,
+      "side": "right",
+      "rotation": -0.8,
+      "src": "images/stickers/sticker-1778390167608-dpnspsj2b6i.png"
+    },
+    {
+      "id": "sticker-1778390177220-ptib992fwde",
+      "anchorIdx": 5,
+      "side": "left",
+      "rotation": -3.4,
+      "src": "images/stickers/sticker-1778390177220-ptib992fwde.png"
+    },
+    {
+      "id": "sticker-1778390184303-nunt67ygbk",
+      "anchorIdx": 7,
+      "side": "right",
+      "rotation": -4.4,
+      "src": "images/stickers/sticker-1778390184303-nunt67ygbk.jpg"
+    },
+    {
+      "id": "sticker-1778390191361-r0y92jbppp",
+      "anchorIdx": 8,
+      "side": "left",
+      "rotation": -0.3,
+      "src": "images/stickers/sticker-1778390191361-r0y92jbppp.jpg"
+    },
+    {
+      "id": "sticker-1778390317962-2a2mh0zqu1r",
+      "anchorIdx": 10,
+      "side": "left",
+      "rotation": -2.3,
+      "src": "images/stickers/sticker-1778390317962-2a2mh0zqu1r.png"
+    },
+    {
+      "id": "sticker-1778390323102-fhxhlphpmx",
+      "anchorIdx": 11,
+      "side": "left",
+      "rotation": -1.9,
+      "src": "images/stickers/sticker-1778390323102-fhxhlphpmx.png"
+    },
+    {
+      "id": "sticker-1778390335296-x6i5fklpp3q",
+      "anchorIdx": 10,
+      "side": "right",
+      "rotation": 3.3,
+      "src": "images/stickers/sticker-1778390335296-x6i5fklpp3q.png"
+    },
+    {
+      "id": "sticker-1778390353933-c1quvx36l35",
+      "anchorIdx": 12,
+      "side": "left",
+      "rotation": 1,
+      "src": "images/stickers/sticker-1778390353933-c1quvx36l35.png"
+    },
+    {
+      "id": "sticker-1778390358683-ni52p7oqxcj",
+      "anchorIdx": 12,
+      "side": "right",
+      "rotation": 4.2,
+      "src": "images/stickers/sticker-1778390358683-ni52p7oqxcj.png"
+    },
+    {
+      "id": "sticker-1778390371650-0ul95vkmtnwp",
+      "anchorIdx": 13,
+      "side": "right",
+      "rotation": 4.2,
+      "src": "images/stickers/sticker-1778390371650-0ul95vkmtnwp.png"
+    },
+    {
+      "id": "sticker-1778390377945-x9k6pq2t0e",
+      "anchorIdx": 13,
+      "side": "left",
+      "rotation": 2.6,
+      "src": "images/stickers/sticker-1778390377945-x9k6pq2t0e.png"
+    },
+    {
+      "id": "sticker-1778390386247-yqm61csuhc",
+      "anchorIdx": 14,
+      "side": "left",
+      "rotation": -4.8,
+      "src": "images/stickers/sticker-1778390386247-yqm61csuhc.png"
+    },
+    {
+      "id": "sticker-1778390393731-lhimygxi9u",
+      "anchorIdx": 14,
+      "side": "right",
+      "rotation": 0.4,
+      "src": "images/stickers/sticker-1778390393731-lhimygxi9u.png"
+    }
+  ]
+}
